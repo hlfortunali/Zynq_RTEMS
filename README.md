@@ -1,4 +1,4 @@
-# zynq_RTEMS
+# Zynq_RTEMS
 RTEMS demo for zynq 7010
 
 
