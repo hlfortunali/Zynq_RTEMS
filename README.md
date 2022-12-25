@@ -10,5 +10,7 @@ RTEMS demo for zynq 7010
 5. Start debugging and open the XSCT Console windows. (reference to : https://china.xilinx.com/htmldocs/xilinx2017_1/SDK_Doc/index.html?q=/htmldocs/xilinx2017_1/SDK_Doc/xsct/use_cases/xsdb_standalone_app_debug.html)
 6. Then you can debug the RTEMS app by using XSCT command.  The XSCT command can be checked on Xilinx's website.
 
-
+## Problem
+1.   Cannot read symbol data. Invalid abbreviation table. Error reading DWARF data   
+When debuging following the above steps, this error may appear.  This reason is that RTEMS gcc version and the Xilinx Vistis GDB version are not compatiable. The solution is upgrade your Vitis version or downgrade your RTEMS version.   RTEMS6 and Vitis2022.2 can work. RTEMS5 and Vitis2020.1 can also work. Other versions are not tested.
 ## to be continue ...
