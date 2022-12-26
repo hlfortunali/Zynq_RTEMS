@@ -42,5 +42,5 @@
  ``` mkdir -p $RTEMS_HOME//build/zedboard ```    
  2. Execute following command to configure BSP:   
  ``` $RTEMS_HOME/src/rtems/configure --prefix=$RTEMS_HOME/rtems/5 --enable-maintainer-mode --target=arm-rtems5 --enable-rtemsbsp=xilinx_zynq_zedboard   --enable-tests --enable-rtems-debug ```     
- 3. make and make install
+ 3. make and make install   
   ``` make && make install ```   
