@@ -41,3 +41,10 @@ https://docs.freebsd.org/en/books/arch-handbook/sysinit/
 
 ### Rate Monotonic Scheduling Algorithm   
 RMS is an optimal fixed-priority algorithm for scheduling independent, preemptible, periodic tasks on a single processor.
+
+
+*** 
+### Barrier Manager
+A barrier can be viewed as a gate at which tasks wait until the gate is opened. This has many analogies in the real world. Horses and other farm animals may approach a closed gate and gather in front of it, waiting for someone to open the gate so they may proceed. Similarly, ticket holders gather at the gates of arenas before concerts or sporting events waiting for the arena personnel to open the gates so they may enter.
+
+Barriers are useful during application initialization. Each application task can perform its local initialization before waiting for the application as a whole to be initialized. Once all tasks have completed their independent initializations, the “application ready” barrier can be released.
