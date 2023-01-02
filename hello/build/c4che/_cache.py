@@ -1,0 +1,9 @@
+ARCHS = ['arm-rtems5']
+ARCH_BSPS = ['arm-rtems5-xilinx_zynq_zedboard']
+BINDIR = '/usr/local/bin'
+LIBDIR = '/usr/local/lib'
+LONG_COMMANDS = 'no'
+PREFIX = '/usr/local'
+RTEMS_ARCH_BSP_LIST = ['arm-rtems5-xilinx_zynq_zedboard']
+RTEMS_TOOLS = ['/home/li/Documents/RTEMS5/quick-start/rtems/5/bin']
+SHOW_COMMANDS = 'no'

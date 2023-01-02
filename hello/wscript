@@ -1,0 +1,136 @@
+# #
+# # Hello world Waf script
+# #
+# from __future__ import print_function
+
+# rtems_version = "6"
+
+# try:
+#     import rtems_waf.rtems as rtems
+# except:
+#     print('error: no rtems_waf git submodule')
+#     import sys
+#     sys.exit(1)
+
+# def init(ctx):
+#     rtems.init(ctx, version = rtems_version, long_commands = True)
+
+# def bsp_configure(conf, arch_bsp):
+#     # Add BSP specific configuration checks
+#     pass
+
+# def options(opt):
+#     rtems.options(opt)
+
+# def configure(conf):
+#     rtems.configure(conf, bsp_configure = bsp_configure)
+
+# def build(bld):
+#     rtems.build(bld)
+
+#     bld(features = 'c cprogram',
+#         target = 'hello.elf',
+#         cflags = ' -Og -g3  -gdwarf',
+#         source = ['hello.c',
+#                   'init.c'])
+
+
+
+
+#
+# Hello world Waf script
+#
+from __future__ import print_function
+import os, sys
+
+rtems_version = "5"
+
+try:
+    import rtems_waf.rtems as rtems
+except:
+    print('error: no rtems_waf git submodule')
+    import sys
+    sys.exit(1)
+
+def init(ctx):
+    rtems.init(ctx, version = rtems_version, long_commands = True)
+
+def bsp_configure(conf, arch_bsp):
+    # Add BSP specific configuration checks
+    pass
+
+def options(opt):
+    rtems.options(opt)
+
+def configure(conf):
+    rtems.configure(conf, bsp_configure = bsp_configure)
+    
+
+
+c_files = []
+#get current path
+root_dir =  os.path.dirname(os.path.abspath( sys.argv[0]))
+root_dir += '/'
+# print("root_dir :", root_dir)
+def find_c_files(file_path):
+    fs = os.listdir(file_path)
+    for f in fs:
+        tmp = os.path.join(file_path,f)
+        if os.path.isfile(tmp):
+            if tmp.endswith('.c'):
+                # print(os.path.abspath(tmp))
+                c_files.append(os.path.abspath(tmp).replace(root_dir, '', 1))
+        elif os.path.isdir(tmp):
+            find_c_files(tmp) # 递归去获取
+        else:
+            print('其他情况')
+ 
+
+header_path = []
+def find_h_files(file_path):
+    fs = os.listdir(file_path)
+    for f in fs:
+        tmp = os.path.join(file_path,f)
+        if os.path.isfile(tmp):
+            if tmp.endswith('.h'):
+                # print(os.path.abspath(tmp))
+                header_path.append(os.path.dirname(os.path.abspath(tmp).replace(root_dir, '', 1)))
+        elif os.path.isdir(tmp):
+            find_h_files(tmp) # 递归去获取
+        else:
+            print('其他情况')
+
+
+
+def build(bld):
+
+    find_c_files(r'./')
+    print("\nc_files : ", c_files)
+    
+    find_h_files(r'./')
+    include_path = list(set(header_path))    #get rid of repeated elements
+    print("\ninclude_path : ", include_path)
+    
+    rtems.build(bld)
+    
+    bld(features = 'c cprogram',
+        target = 'hello.exe',
+        cflags = '-O0 -g3 -Wall  -gstabs+  ',
+        includes = include_path,
+        source = c_files
+        )
+                  
+                  
+#  source = ['hello.c',
+#                   'init.c',
+#                   'task1.c',
+#                   'task2.c',
+#                   'get_date.c',
+#                   'semaphore_test.c',
+#                   'message_queue_test.c',
+#                   'event_test.c'
+#                   ])
+                  
+                  
+                  
+                  
