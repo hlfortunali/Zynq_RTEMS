@@ -54,7 +54,9 @@ Barriers are useful during application initialization. Each application task can
 
 
 
-
+***
+***
+***
 # Interrupt 
 ### Interrupt initialization : 
     The interrupt initializatio is done in "bsp_interrupt_initialize()" function located in bsp_start functuon.    
