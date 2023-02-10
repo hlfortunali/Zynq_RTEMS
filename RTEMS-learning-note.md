@@ -60,7 +60,8 @@ Barriers are useful during application initialization. Each application task can
 # Interrupt 
 ### Interrupt initialization : 
     The interrupt initializatio is done in "bsp_interrupt_initialize()" function located in bsp_start functuon.    
-    Then "_ARMV4_Exception_interrupt" handler is set to be the interrupt entry for all maskable interrupt vectors. When an interrupt occured this handler     will be executed and a certain interrupt will be dispatched from the registered table.
+    Then "_ARMV4_Exception_interrupt" handler is set to be the interrupt entry for all maskable interrupt vectors.   
+    If a vector is installed by using "rtems_interrupt_handler_install" function in initialization procedure, then this vector can be dispatched from the registered list.   
     And after that the thread dispatcher will be executed if needed.
     Then return to interrupted point.
     
