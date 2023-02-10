@@ -48,3 +48,30 @@ RMS is an optimal fixed-priority algorithm for scheduling independent, preemptib
 A barrier can be viewed as a gate at which tasks wait until the gate is opened. This has many analogies in the real world. Horses and other farm animals may approach a closed gate and gather in front of it, waiting for someone to open the gate so they may proceed. Similarly, ticket holders gather at the gates of arenas before concerts or sporting events waiting for the arena personnel to open the gates so they may enter.
 
 Barriers are useful during application initialization. Each application task can perform its local initialization before waiting for the application as a whole to be initialized. Once all tasks have completed their independent initializations, the “application ready” barrier can be released.
+
+
+
+
+
+
+
+# Interrupt 
+### Interrupt initialization : 
+    The interrupt initializatio is done in "bsp_interrupt_initialize()" function located in bsp_start functuon.    
+    Then "_ARMV4_Exception_interrupt" handler is set to be the interrupt entry for all maskable interrupt vectors. When an interrupt occured this handler     will be executed and a certain interrupt will be dispatched from the registered table.
+    And after that the thread dispatcher will be executed if needed.
+    Then return to interrupted point.
+    
+    rtems_status_code bsp_interrupt_facility_initialize(void)
+    {
+     volatile gic_cpuif *cpuif = GIC_CPUIF;
+     volatile gic_dist *dist = ARM_GIC_DIST;
+     uint32_t id_count = get_id_count(dist);
+    uint32_t id;
+
+    arm_cp15_set_exception_handler(
+    ARM_EXCEPTION_IRQ,
+    _ARMV4_Exception_interrupt
+    ); 
+    .......
+    
