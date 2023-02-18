@@ -41,7 +41,7 @@
  1. Create a build folder   
  ``` mkdir -p $RTEMS_HOME//build/zedboard ```     
  
- 2. Change zynq zedboard periphral clock and uart clock frequency
+ 2. Change zynq zedboard periphral clock and uart clock frequency   
     1> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure.ac".    
        RTEMS_BSPOPTS_SET([BSP_ARM_A9MPCORE_PERIPHCLK],[xilinx_zynq_zedboard*],[666666667U])     line 32.    
        RTEMS_BSPOPTS_SET([ZYNQ_CLOCK_UART],[xilinx_zynq_zedboard*],[50000000UL])                line 37   
@@ -51,11 +51,11 @@
     2> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure". 
        And also change the .... todo
 
- 2. Enter the folder created in step 1 and Execute following command to configure BSP:   
+ 3. Enter the folder created in step 1 and Execute following command to configure BSP:   
  ``` $RTEMS_HOME/src/rtems/configure  --prefix=$RTEMS_HOME/rtems/5 --enable-maintainer-mode --target=arm-rtems5 --enable-rtemsbsp=xilinx_zynq_zedboard    --enable-tests --enable-rtems-debug CFLAGS_FOR_TARGET="-march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard -mtune=cortex-a9 -O0 -g3 -ffunction-sections -fdata-sections -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs"```    
  
  Note: the "-O0 -g3" flags are used to turn off compile optimization. So that the RTEMS kernel can be debugged. The default flag is "-O2 -g". 
    
  
- 3. make and make install   
+ 4. make and make install   
   ``` make && make install ```   
