@@ -40,8 +40,22 @@
 #### RTEMS5   
  1. Create a build folder   
  ``` mkdir -p $RTEMS_HOME//build/zedboard ```     
- 2. If we need to debug the RTEMS kernel, the CFLGAS need to be set to " -O0 -g3 "  in both rsb and rtems bsp and libbsp for xilinx_zynq. We can use vscode to open the two souce folder and search for "-O2" and then change the flags.   
- 3. Enter the folder created in step 1 and Execute following command to configure BSP:   
- ``` $RTEMS_HOME/src/rtems/configure --prefix=$RTEMS_HOME/rtems/5 --enable-maintainer-mode --target=arm-rtems5 --enable-rtemsbsp=xilinx_zynq_zedboard   --enable-tests --enable-rtems-debug ```     
- 4. make and make install   
+ 
+ 2. Change zynq zedboard periphral clock and uart clock frequency
+    1> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure.ac".    
+       RTEMS_BSPOPTS_SET([BSP_ARM_A9MPCORE_PERIPHCLK],[xilinx_zynq_zedboard*],[666666667U])     line 32.    
+       RTEMS_BSPOPTS_SET([ZYNQ_CLOCK_UART],[xilinx_zynq_zedboard*],[50000000UL])                line 37   
+       Change the 666666667U to 333333333U. Because the periphral clock frequency is half the core frequency.  
+       Change the 50000000UL to 100000000UL. Because the uart clock is set 100000000UL by default.
+    
+    2> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure". 
+       And also change the .... todo
+
+ 2. Enter the folder created in step 1 and Execute following command to configure BSP:   
+ ``` $RTEMS_HOME/src/rtems/configure  --prefix=$RTEMS_HOME/rtems/5 --enable-maintainer-mode --target=arm-rtems5 --enable-rtemsbsp=xilinx_zynq_zedboard    --enable-tests --enable-rtems-debug CFLAGS_FOR_TARGET="-march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard -mtune=cortex-a9 -O0 -g3 -ffunction-sections -fdata-sections -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs"```    
+ 
+ Note: the "-O0 -g3" flags are used to turn off compile optimization. So that the RTEMS kernel can be debugged. The default flag is "-O2 -g". 
+   
+ 
+ 3. make and make install   
   ``` make && make install ```   
