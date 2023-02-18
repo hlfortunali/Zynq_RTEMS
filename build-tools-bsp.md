@@ -39,8 +39,9 @@
  
 #### RTEMS5   
  1. Create a build folder   
- ``` mkdir -p $RTEMS_HOME//build/zedboard ```    
- 2. Execute following command to configure BSP:   
+ ``` mkdir -p $RTEMS_HOME//build/zedboard ```     
+ 2. If we need to debug the RTEMS kernel, the CFLGAS need to be set to " -O0 -g3 "  in both rsb and rtems bsp and libbsp for xilinx_zynq. We can use vscode to open the two souce folder and change the flags.   
+ 3. Enter the folder created in step 1 and Execute following command to configure BSP:   
  ``` $RTEMS_HOME/src/rtems/configure --prefix=$RTEMS_HOME/rtems/5 --enable-maintainer-mode --target=arm-rtems5 --enable-rtemsbsp=xilinx_zynq_zedboard   --enable-tests --enable-rtems-debug ```     
- 3. make and make install   
+ 4. make and make install   
   ``` make && make install ```   
