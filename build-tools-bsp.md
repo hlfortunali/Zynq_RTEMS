@@ -42,7 +42,7 @@
  ``` mkdir -p $RTEMS_HOME/build/zedboard ```     
  
  #### 2. Change zynq zedboard periphral clock and uart clock frequency   
-   1> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure.ac".    
+    1> in c/src/lib/libbsp/arm/xilinx_zynq folder, find file named "configure.ac".    
          ``` RTEMS_BSPOPTS_SET([BSP_ARM_A9MPCORE_PERIPHCLK],[xilinx_zynq_zedboard*],[666666667U])     line 32.    
          RTEMS_BSPOPTS_SET([ZYNQ_CLOCK_UART],[xilinx_zynq_zedboard*],[50000000UL])                line 37   ```   
        Change the 666666667U to 333333333U. Because the periphral clock frequency is half the core frequency.  
