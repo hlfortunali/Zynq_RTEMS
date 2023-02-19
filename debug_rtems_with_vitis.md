@@ -15,12 +15,13 @@
         ``` Debug configuration --> Application --> Browse --> select the RTEMS app hello.exe. ```   
         Note : change the ".elf" to ".exe" at the right bottom of the file select window.
     5. Start debugging RTEMS program just like debugging the Vitis hello project. 
-    6. Creating a c project using Makefile project template in vitis and set the project location in path of "$RTEMS_HOME/src/rtems",   
-        so that the source code can be followed when debuging RTEMS program.   
+    6. Creating a c project using Makefile project template in vitis and set the project location in path of    
+        "$RTEMS_HOME/src/rtems", so that the source code can be followed when debuging RTEMS program.    
 
-
+***
 ### Problem
-    Cannot read symbol data. Invalid abbreviation table. Error reading DWARF data When debuging following the above steps, this error may appear.   
-    The reason is that RTEMS gcc version and the Xilinx Vistis GDB version are not compatiable. The solution is upgrade your Vitis version or   
-    downgrade your RTEMS version. RTEMS6 and Vitis2022.2 can work. RTEMS5 and Vitis2020.1 can also work. Other versions are not tested.   
+    Cannot read symbol data. Invalid abbreviation table. Error reading DWARF data When debuging following   
+    the above steps, this error may appear. The reason is that RTEMS gcc version and the Xilinx Vistis GDB   
+    version are not compatiable. The solution is upgrade your Vitis version or downgrade RTEMS version.   
+    RTEMS6 and Vitis2022.2 can work. RTEMS5 and Vitis2020.1 can also work. Other versions are not tested.      
 
