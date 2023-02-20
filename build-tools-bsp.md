@@ -23,20 +23,30 @@
   ``` touch build-bsp.sh```   
   ``` chomd +x build-bsp.sh ```    
 #### 3. Input the following commands to build-bsp.sh file   
- ``` #!/bin/sh   ```    
- ``` echo "[sparc/xilinx_aynqmp_ultra96]" > config.ini ```    
- ``` echo "BUILD_TESTS = True" >> config.ini ```    
- ``` echo "BUILD_SAMPLES=True" >> config.ini ```    
- ``` echo "RTEMS_DEBUG=True" >> config.ini ```    
- ``` ./waf configure --prefix=/home/li/Documents/RTEMS/quick-start/rtems/6 && ```     
- ``` ./waf && ```   
- ``` ./waf install && ```   
- ``` echo "Build finished!" ```      
+      #!/bin/sh   
+      echo "[arm/xilinx_zynq_zedboard]" > config.ini   
+      echo "BUILD_TESTS = True" >> config.ini 
+      echo "BUILD_SAMPLES=True" >> config.ini     
+      echo "RTEMS_DEBUG=True" >> config.ini     
+      echo "OPTIMIZATION_FLAGS = -O0 -g3 -fdata-sections -ffunction-sections" >> config.ini
+      echo "ZYNQ_CLOCK_UART = 100000000" >> config.ini
+      echo "BSP_ARM_A9MPCORE_PERIPHCLK = 333333334" >> config.ini
+      ./waf configure --prefix=$RTEMS_HOME/rtems/6 &&   
+      ./waf &&   
+      ./waf install &&   
+      echo "\nBuild finished!\n"    
+      
+   ###### Note：   
+          The option like "BUILD_TESTS" can be checked via "./waf bspdefaults >> defaults.log" command.   
+          Then search "[arm/xilinx_zynq_zedboard]" in defaults.log file, the options are listed in this   
+          section. Then add option config in config.ini.
+          
+     
   
 #### 4. Execute the sh file   
  ``` ./build-bsp.sh ```    
 
- 
+
 ### RTEMS5   
  #### 1. Create a build folder   
  ``` mkdir -p $RTEMS_HOME/build/zedboard ```     
