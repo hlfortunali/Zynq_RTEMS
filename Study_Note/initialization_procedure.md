@@ -47,3 +47,5 @@
         &_Thread_Heads[ 0 ] 
       } 
     }
+    
+    Note : The element of "Chain_Control Inactive" will point to the _Thread_Obecjts array.  
