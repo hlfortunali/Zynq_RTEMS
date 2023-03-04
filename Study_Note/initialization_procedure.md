@@ -1,5 +1,6 @@
 ####  _Workspace_Handler_initialization funcion
-    This function is used to initialization the heap for RTEMS. The space (Memery_area) is defined in linkdcmd.base file.    
+    This function is used to initialization the heap for RTEMS.   
+    The space (Memery_area) is defined in linkdcmd.base file.    
     After this procedure a pointer will point to the heap area.
 
 
@@ -87,4 +88,5 @@
     _Objects_Get_maximum_index( &information->Objects ),
     _Thread_queue_Heads_size
     );
-    This function finally initializ the chain to connect _Thread_Heads.  That is head.Next point to _Thread_Heads[0] and Thared_Heads[0].next point to tail.   
+    This function finally initializ the chain to connect _Thread_Heads.  That is head.Next point to _Thread_Heads[0] and    
+    Thared_Heads[0].next point to tail.   
