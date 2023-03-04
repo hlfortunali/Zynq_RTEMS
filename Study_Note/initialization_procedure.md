@@ -15,6 +15,36 @@
 
 #### _Thread_Handler_initialization --> _Thread_Initialize_information
 
+        /**
+         * @brief The thread object information.
+         */
+        typedef struct {
+          /**
+           * @brief The object information.
+           */
+          Objects_Information Objects;
+
+          /**
+           * @brief Thread queue heads maintenance.
+           */
+          union {
+            /**
+             * @brief Contains the initial set of thread queue heads.
+             *
+             * This is set by <rtems/confdefs.h> via THREAD_INFORMATION_DEFINE().
+             */
+            Thread_queue_Configured_heads *initial;
+
+            /**
+             * @brief The free thread queue heads.
+             *
+             * This member is initialized by _Thread_Initialize_information().
+             */
+            Freechain_Control Free;
+          } Thread_queue_heads;
+        } Thread_Information;
+        
+        
       THREAD_INFORMATION_DEFINE(
       _Thread,
       OBJECTS_INTERNAL_API,
@@ -49,3 +79,4 @@
     }
     
     Note : The element of "Chain_Control Inactive" will point to the _Thread_Obecjts array.  
+           The elemetn of "Thread_queue_Configured_heads *initial " will point to _Thread_Heads[0].
