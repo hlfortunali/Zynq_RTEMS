@@ -79,8 +79,8 @@
       } 
     }
     
- Note : The element of "Chain_Control Inactive" will point to the _Thread_Obecjts array.
-           The elemetn of "Thread_queue_Configured_heads *initial " will point to _Thread_Heads[0].
+ Note : After initialization the element of "Chain_Control Inactive" will connect to the _Thread_Objects[ 0 ].Control.Object.   
+        The elemetn of "Thread_queue_Configured_heads *initial " will point to _Thread_Heads[0].
            
      _Freechain_Initialize(
     &information->Thread_queue_heads.Free,
@@ -90,3 +90,12 @@
     );
     This function finally initializ the chain to connect _Thread_Heads.  That is head.Next point to _Thread_Heads[0] and    
     Thared_Heads[0].next point to tail.   
+    
+    
+#### _Scheduler_Handler_initialization
+    Initializating the priority map and chain.
+    
+#### _RTEMS_tasks_Manager_initialization
+    1.  _Thread_Initialize_information( &_RTEMS_tasks_Information );  
+         This function initializes the _RTEMS_tasks_Information array and connect the inacitve chain control node to _RTEMS_task_
+    _User_extensions_Add_API_set( &_RTEMS_tasks_User_extensions );
