@@ -78,5 +78,13 @@
       } 
     }
     
-    Note : The element of "Chain_Control Inactive" will point to the _Thread_Obecjts array.  
+ Note : The element of "Chain_Control Inactive" will point to the _Thread_Obecjts array.
            The elemetn of "Thread_queue_Configured_heads *initial " will point to _Thread_Heads[0].
+           
+     _Freechain_Initialize(
+    &information->Thread_queue_heads.Free,
+    information->Thread_queue_heads.initial,
+    _Objects_Get_maximum_index( &information->Objects ),
+    _Thread_queue_Heads_size
+    );
+    This function finally initializ the chain to connect _Thread_Heads.  That is head.Next point to _Thread_Heads[0] and Thared_Heads[0].next point to tail.   
