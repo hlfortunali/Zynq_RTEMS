@@ -7,7 +7,12 @@
      the the thread timeout event occured. Then the thread will be unlocked by calling "_Thread_Unblock",   
      "_Scheduler_Unblock" and sequencially "_Scheduler_Update_heir" function.  In "_Scheduler_Update_heir "   
      the  " _Thread_Dispatch_necessary = true'" will set the dispatch_necessery as true. Because the   
-     macro of "_Thread_Dispatch_necessary" is defined as "_Per_CPU_Get()->dispatch_necessary" .    
+     macro of "_Thread_Dispatch_necessary" is defined as "_Per_CPU_Get()->dispatch_necessary" .  Also, in
+      "_Scheduler_Update_heir "  function the hire thread will be updated, the newly thread that to be 
+      exectuted will become the hire. 
+      
+   So, the procedure is that the interrupt check the time event for each task and set dispatch flag and   
+   change the hire thread.  Then the dispatch function change the thread contex.
      
    Then after processing the interrupt, the "_ARMV4_Exception_interrupt" will check whehter    
    thread dispatch is needed. The code is as following:      
