@@ -1,4 +1,4 @@
-## Build compile tools
+# Build compile tools
 ### 1. Install needed libs under ubuntu(18.04.2)   
    ``` sudo apt install build-dep build-essential gcc-defaults g++ gdb unzip pax bison flex texinfo python3-dev libpython2-dev libncurses5-dev zlib1g-dev```    
    ``` sudo apt-get install git```
@@ -14,8 +14,9 @@
  ``` ../source-builder/sb-set-builder --prefix=$RTEMS_HOME/rtems/6 6/rtems-arm ```     
 
 *** 
+***
 
-## Build BSP 
+# Build BSP 
 ### RTEMS6
 #### 1. enter the source path of rtems    
   ``` cd $RTEMS_HOME/quick-start/src/rtems ```   
@@ -71,3 +72,10 @@
  
  #### 4. make and make install   
   ``` make && make install ```   
+  
+  ***
+  ***
+# Build Application
+reference to   https://ftp.rtems.org/pub/rtems/releases/5/5.1/docs/html/user/start/app.html
+
+Need change bsp : ./waf configure --rtems=$HOME/quick-start/rtems/5 --rtems-bsp=arm/xilinx_zynq_zedboard
