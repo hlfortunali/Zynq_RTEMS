@@ -27,7 +27,7 @@
     3. Copy the arm-rtems6 folder to the created project path.   
        Note: the arm-rtems6 folder is needed. It contains lib, include , bin and xilinx_zynq_zedboard bsp folder.   
              The bin folder can be deleted.   
-             ![picture](/img/project_struct.jpg )  
+   ![picture](/img/project_struct.jpg )  
     4. Set the tool chain as Cross ARM GCC in "Tool Chain Editor"  page.
     5. In "C/C++ Build -> Settings" page, under label of "Toolchains" set prefix as "arm-rtems6-", and add the   
        arm-rtems6-gcc path to "Toolchain path" input box.
@@ -35,10 +35,10 @@
        and "arm-rtems6/xilinx_zynq_zedboard/lib/include", and also any other user created include path.
     7. Following step 6, selecting "Cross ARM C Compiler --> Miscellaneous" add other compiler flags :   
        -O0 -g3  -std=gnu11 --save-temps -v  -std=c11 -march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard -mtune=cortex-a9 -MMD  -qrtems -Wl,--gc-sections   
-       ![picture](/img/c_compiler_config.jpg )   
+   ![picture](/img/c_compiler_config.jpg )   
     8. Following step 7, under "Cross ARM C Linker" page, uncheck all other checkbox. Just adding lib path of the    
        "xilinx_zynq_zedboard/lib"   
-       ![picture](/img/linker_set.jpg )   
+   ![picture](/img/linker_set.jpg )   
        
     
     
