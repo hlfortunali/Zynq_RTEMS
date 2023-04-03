@@ -3,8 +3,9 @@
     2. Vitis2022.2
     3. RTEMS6
     4. Zynq board (AX7010 from Alinx company)
+   ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/AX7010%E4%B8%BB%E5%9B%BE-1.jpg?raw=true)   
     
-    ***
+***
     
 # Debug use Xilinx Vitis
     1. build the RTEMS app following the official guide, then you will get hello.exe(for example)
@@ -31,6 +32,9 @@
    
    
     4. Set the tool chain as Cross ARM GCC in "Tool Chain Editor"  page.
+  ![picture]( https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/cross_tools.png?raw=true)
+  
+  
     5. In "C/C++ Build -> Settings" page, under label of "Toolchains" set prefix as "arm-rtems6-", and add the   
        arm-rtems6-gcc path to "Toolchain path" input box, the path as : "...../quick_start/rtems/6/bin".
    ![picture]( https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/toolchains.png?raw=true)
