@@ -51,7 +51,8 @@
        "xilinx_zynq_zedboard/lib"   
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/linkder_set.png?raw=true)   
        
-    
+    9. Then configure the debug and start debugging.  No need any other configuration. 
+   ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/debug_config.png?raw=true)   
     
 # Problem
     Cannot read symbol data. Invalid abbreviation table. Error reading DWARF data When debuging following   
