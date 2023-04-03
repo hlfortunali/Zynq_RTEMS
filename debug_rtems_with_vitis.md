@@ -47,9 +47,14 @@
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/c_compiler_config.png?raw=true)    
    
    
-    8. Following step 7, under "Cross ARM C Linker" page, uncheck all other checkbox. Just adding lib path of the    
-       "xilinx_zynq_zedboard/lib"   
+    8. Following step 7, under "Cross ARM C Linker" page, uncheck all other checkbox, then add lib path of the    
+       "xilinx_zynq_zedboard/lib" .   
+       Then add other link flags in Miscellaneous page as following:   
+        "-O0 -g3  -std=gnu11 --save-temps -v  -std=c11 -march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard      
+        -mtune=cortex-a9 -MMD  -qrtems -Wl,--gc-sections -B(path of the project)/arm-rtems6/xilinx_zynq_zedboard/lib“    
+        
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/linkder_set.png?raw=true)   
+   ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/other_linker_flags.png?raw=true)   
        
     9. Then configure the debug and start debugging.  No need any other configuration. 
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/debug_config.png?raw=true)   
