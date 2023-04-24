@@ -55,8 +55,12 @@
         
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/linkder_set.png?raw=true)   
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/other_linker_flags.png?raw=true)   
+   
+   
+    9. Creating a c project using Makefile project template in vitis and set the project location in path of    
+    "$RTEMS_HOME/src/rtems", so that the source code can be followed when debuging RTEMS program.      
        
-    9. Then configure the debug and start debugging.  No need any other configuration. 
+    10. Then configure the debug and start debugging.  No need any other configuration. 
    ![picture](https://github.com/hlfortunali/Zynq_RTEMS/blob/main/img/debug_config.png?raw=true)   
     
 # Problem
