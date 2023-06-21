@@ -15,7 +15,7 @@
 
  Then, add tools to PATH:   
  add following line in /etc/profile   
- export PATH=RTEMS_HOME/rtems/6/bin:$PATH
+ ``` export PATH=RTEMS_HOME/rtems/6/bin:$PATH ```    
 
 *** 
 ***
