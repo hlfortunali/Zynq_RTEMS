@@ -13,8 +13,8 @@
  ``` cd $RTEMS_HOME/src/rsb/rtems```   
  ``` ../source-builder/sb-set-builder --prefix=$RTEMS_HOME/rtems/6 6/rtems-arm ```     
 
- Then, add tools to PATH:
- add following line in /etc/profile
+ Then, add tools to PATH:   
+ add following line in /etc/profile   
  export PATH=RTEMS_HOME/rtems/6/bin:$PATH
 
 *** 
