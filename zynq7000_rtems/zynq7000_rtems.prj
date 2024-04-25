@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="zynq7000_rtems" location="/home/lee/Documents/VitisSpace2022/zynq7000_rtems" platform="/home/lee/Documents/VitisSpace2022/design_1_wrapper_z7000/export/design_1_wrapper_z7000/design_1_wrapper_z7000.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="zynq7000_rtems_system" sysConfig="design_1_wrapper_z7000" runtime="C/C++" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="18380933f0b1173b31d931572589546d">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.281291795">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.875067884" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
